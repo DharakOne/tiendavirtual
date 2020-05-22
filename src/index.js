@@ -4,7 +4,9 @@ import App from './App';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import appStore from './redux/appStore'
+import {userChangedWatch} from "./firebase/whatchers/userWatch"
 
+userChangedWatch()
 
 ReactDOM.render(
     <React.StrictMode>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Button, Toolbar, IconButton, Link } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Link, makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -15,14 +14,17 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     link: {
-        padding:"7px 5px",
-        borderRadius:"10%",
+        padding: "7px 8px",
+        borderRadius: "10%",
         "&:hover": {
             background: "rgba(0, 0, 0, 0.06)",
             textDecoration: 'none',
-            
+        },
+        fontSize: "2.5ex",
+        fontWeight: "550",
+        '&:active':{
+            background:"rgba(0, 0, 0, 0.1)"
         }
-
     }
 }));
 
@@ -31,15 +33,20 @@ export default function NavBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar color='secondary' position="static">
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
-                    <Link  className={classes.link} component={RouterLink} to="/" color='inherit'>
-                        With prop forwarding
-                    </Link>
-                    <Button color="inherit">Login</Button>
+                    <Link className={classes.link}
+                        component={RouterLink} to='/' color='inherit'>
+                        Inicio
+                    </Link> 
+                    {["Iniciar Sesión", "Crear Cuenta"].map((link) =>
+                        <Link key={link} className={classes.link}
+                            component={RouterLink} to={link.replace(/ /g, "")} color='inherit'>
+                            {link}
+                        </Link>)}
                 </Toolbar>
             </AppBar>
         </div>
