@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     IniciarSesion: {
         margin: '2% 0',
         padding: '35px 20px',
-        background: '#FFF5EE',
+        background: 'white',
         borderRadius: '7%',
         boxShadow: '20px 1opx'
     }

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import appStore from './redux/appStore'
 import {userChangedWatch} from "./firebase/whatchers/userWatch"
+import "./index.css"
 
 userChangedWatch()
 
